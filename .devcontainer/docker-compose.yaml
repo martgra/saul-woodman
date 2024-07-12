@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  frontend:
+    user: node
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 1-20-bullseye
+    volumes:
+      - ..:/workspace:cached # Shared workspace between host and devcontainer
+      - saul_woodman_extensions:/home/vscode/.vscode-server/extensions # Storing extensions
+      - saul_woodman_commandhistory:/home/vscode/commandhistory # Persistant command line history
+      - saul_woodman_cache:/home/vscode/.cache # Caching poetry/pip wheels
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+    networks:
+      - common-net
+
+networks:
+  common-net:
+    name: rag-network
+    external: true
+
+# Volumes that are not shared between Host and Devcontainer must be listed here.
+volumes:
+  saul_woodman_extensions:
+  saul_woodman_commandhistory:
+  saul_woodman_cache:

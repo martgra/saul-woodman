@@ -1,0 +1,27 @@
+{
+  "name": "Node 20",
+  "dockerComposeFile": ["docker-compose.yaml"],
+  "service": "frontend",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "Gruntfuggly.todo-tree",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [8888],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "remoteUser": "node",
+  "containerUser": "node",
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/home/node/.local/bin"
+  },
+  "postStartCommand": "bash .devcontainer/postStartCommand.sh",
+  "postCreateCommand": "bash .devcontainer/postCreateCommand.sh"
+}
