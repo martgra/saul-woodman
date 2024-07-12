@@ -3,7 +3,7 @@ import SaulWoodman from '../../../public/assets/saul_woodman_straight.svg'
 
 export function Intro() {
   return (
-    <section className="mb-16 mt-16 flex w-full flex-col items-center md:mb-12">
+    <section className="mb-16 flex w-full flex-col items-center pt-16 md:mb-12">
       <div className="flex w-full flex-col items-center">
         <Logo className="h-auto w-full" />
         <div className="flex w-full justify-end">
