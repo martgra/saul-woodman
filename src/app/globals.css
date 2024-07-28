@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-contrast {
+  filter: contrast(1.5); /* Adjust the value as needed */
+}
+
+.text-outline-right {
+  text-shadow: 2px 0 0 black; /* Adjust the offset and color as needed */
+}
+
+.text-outline {
+  text-shadow:
+    1px 1px 0 white,
+    /* Adjust color as needed */ -1px -1px 0 white,
+    -1px 1px 0 white,
+    1px -1px 0 white;
+}

@@ -3,7 +3,8 @@ import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import cn from 'classnames'
-import { ThemeSwitcher } from './_components/theme-switcher'
+import { ThemeSwitcher } from '@/app/_components/theme-switcher'
+import ScrollFadeBackground from '@/app/_components/background'
 
 import './globals.css'
 
@@ -36,10 +37,15 @@ export default function RootLayout({
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className={cn(inter.className, 'dark:bg-slate-900 dark:text-slate-400')}>
+      <body
+        className={cn(
+          inter.className,
+          'bg-hero-pattern bg-cover bg-fixed bg-center dark:bg-slate-900 dark:text-slate-400',
+          'dark:backdrop-brightness-25 min-h-screen dark:backdrop-contrast-100',
+        )}
+      >
         <ThemeSwitcher />
         <div className="min-h-screen">{children}</div>
-        <Footer />
       </body>
     </html>
   )

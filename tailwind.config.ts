@@ -12,6 +12,7 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'hero-pattern': "url('/assets/background.jpg')",
       },
       colors: {
         'accent-1': '#FAFAFA',
@@ -35,6 +36,10 @@ const config: Config = {
       boxShadow: {
         sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
         md: '0 8px 30px rgba(0, 0, 0, 0.12)',
+      },
+      backdropBrightness: {
+        25: '.25',
+        175: '1.75',
       },
     },
   },

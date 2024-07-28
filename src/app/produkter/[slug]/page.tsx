@@ -20,19 +20,21 @@ export default async function Post({ params }: Params) {
 
   return (
     <main>
-      <Alert preview={post.preview} />
-      <Container>
-        <Header />
-        <article className="mb-32">
-          <PostHeader
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-          />
-          <PostBody content={content} />
-        </article>
-      </Container>
+      <div className="p-10">
+        <Container>
+          <div className="overflow-hidden rounded-xl bg-white">
+            <article className="mb-32">
+              <PostHeader
+                title={post.title}
+                coverImage={post.coverImage}
+                date={post.date}
+                author={post.author}
+              />
+              <PostBody content={content} />
+            </article>
+          </div>
+        </Container>
+      </div>
     </main>
   )
 }
