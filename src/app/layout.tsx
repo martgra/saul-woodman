@@ -37,12 +37,15 @@ export default function RootLayout({
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className={cn(inter.className, 'min-h-screen')}>
-        <ScrollFadeBackground>
-          <ThemeSwitcher />
-          <div className="min-h-screen">{children}</div>
-          <Footer />
-        </ScrollFadeBackground>
+      <body
+        className={cn(
+          inter.className,
+          'bg-hero-pattern bg-cover bg-fixed bg-center dark:bg-slate-900 dark:text-slate-400',
+          'dark:backdrop-brightness-25 min-h-screen dark:backdrop-contrast-100',
+        )}
+      >
+        <ThemeSwitcher />
+        <div className="min-h-screen">{children}</div>
       </body>
     </html>
   )

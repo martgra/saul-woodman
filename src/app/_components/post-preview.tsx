@@ -1,34 +1,33 @@
 import { type Author } from '@/interfaces/author'
 import Link from 'next/link'
-import Avatar from './avatar'
 import CoverImage from './cover-image'
-import DateFormatter from './date-formatter'
+
+import { Dancing_Script } from 'next/font/google'
+
+const dancing = Dancing_Script({ subsets: ['latin'] })
 
 type Props = {
   title: string
   coverImage: string
-  date: string
   excerpt: string
-  author: Author
   slug: string
 }
 
-export function PostPreview({ title, coverImage, date, excerpt, author, slug }: Props) {
+export function PostPreview({ title, coverImage, slug, excerpt }: Props) {
   return (
-    <div>
-      <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
-      </div>
-      <h3 className="mb-3 text-3xl leading-snug">
-        <Link href={`/posts/${slug}`} className="hover:underline">
+    <div className="mb-8 overflow-hidden rounded-2xl bg-white bg-opacity-70 shadow-md shadow-black backdrop-opacity-80 dark:bg-gray-800">
+      <h2
+        className={`text-center text-5xl font-bold leading-tight tracking-tighter md:text-7xl ${dancing.className} text-outline-right text-red-600`}
+      >
+        <Link href={`/produkter/${slug}`} className="hover:underline">
           {title}
         </Link>
-      </h3>
-      <div className="mb-4 text-lg">
-        <DateFormatter dateString={date} />
+      </h2>
+      <p className="mb-4 text-center text-lg leading-relaxed">{excerpt}</p>
+
+      <div>
+        <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
-      <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
     </div>
   )
 }
